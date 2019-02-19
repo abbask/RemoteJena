@@ -19,20 +19,21 @@ import org.apache.jena.rdfconnection.RDFConnectionRemoteBuilder;
 public class RemoteJenaDriver {
 
 	final static String ENDPOINT = "http://localhost:8890/sparql";
-	final static String GSP = "http://prokino.uga.edu";
-	final static String oGSP = "http://www.semanticweb.org/abbas/ontologies/2015/2/oscar";
+	final static String GRAPH = "http://prokino.uga.edu";
+	final static String oGRAPH = "http://www.semanticweb.org/abbas/ontologies/2015/2/oscar";
 	
 	public static void main(String[] args) {
         RDFConnectionRemoteBuilder builder = RDFConnectionRemote.create()
                 .destination(ENDPOINT)
                 // Query only.
-                .queryEndpoint("sparql")
-                .gspEndpoint(oGSP)
+                .queryEndpoint("sparql")            
                 .updateEndpoint(null)
                 .gspEndpoint(null);
         
-        String queryString = "select ?s ?p ?o FROM <" + oGSP + "> where {?s ?p ?o} LIMIT 100";
-            
+//        String queryString = "select ?s ?p ?o FROM <" + oGSP + "> where {?s ?p ?o} LIMIT 100";
+        String queryString = "select (count(?s) as ?count) FROM <" + oGRAPH + "> where {?s ?p ?o} LIMIT 100";
+        
+        
         Query query = QueryFactory.create(queryString);
 
         // Whether the connection can be reused depends on the details of the implementation.
