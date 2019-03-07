@@ -1,0 +1,26 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://spinrdf.org/sp#">
+  <j.0:Select>
+    <j.0:limit rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+    >100</j.0:limit>
+    <j.0:resultVariables rdf:parseType="Collection">
+      <rdf:Description>
+        <j.0:varName>Concept</j.0:varName>
+      </rdf:Description>
+    </j.0:resultVariables>
+    <j.0:distinct rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</j.0:distinct>
+    <j.0:where rdf:parseType="Collection">
+      <rdf:Description>
+        <j.0:object rdf:parseType="Resource">
+          <j.0:varName>Concept</j.0:varName>
+        </j.0:object>
+        <j.0:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+        <j.0:subject rdf:parseType="Resource">
+          <j.0:varName>?0</j.0:varName>
+        </j.0:subject>
+      </rdf:Description>
+    </j.0:where>
+  </j.0:Select>
+</rdf:RDF>
